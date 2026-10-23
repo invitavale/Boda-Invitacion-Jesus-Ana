@@ -8,21 +8,21 @@
 <meta property="og:title" content="Jesús & Ana · Nos casamos">
 <meta property="og:description" content="Acompáñanos a celebrar nuestra boda.">
 <meta property="og:image" content="img/foto-portada.jpg">
-<meta name="theme-color" content="#f6f2ef">
+<meta name="theme-color" content="#fdfcfa">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Pinyon+Script&family=Marcellus&display=swap" rel="stylesheet">
 <style>
 :root{
-  --vino:#521219;
-  --vino-2:#3f0d13;
-  --crema:#f6f2ef;
-  --card:#f8f4f1;
-  --tinta:#4a1a20;
-  --oro:#e6c99c;
-  --oro-txt:#f3d3a8;
-  --malva:#a7868d;
+  --vino:#b39270;
+  --vino-2:#9c7b58;
+  --crema:#fdfcfa;
+  --card:#ffffff;
+  --tinta:#6f5843;
+  --oro:#e3cfb4;
+  --oro-txt:#ffffff;
+  --malva:#ccae90;
   --serif:'Cormorant Garamond', Georgia, serif;
   --script:'Pinyon Script', cursive;
   --sans:'Marcellus', Georgia, serif;
@@ -33,13 +33,13 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
-  font-family:var(--serif);color:var(--tinta);background:#e8e1db;
+  font-family:var(--serif);color:var(--tinta);background:#efe7dd;
   font-size:17px;line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
 body.locked{overflow:hidden;height:100vh}
 img{max-width:100%;display:block}
 [hidden]{display:none!important}
-.app{position:relative;max-width:var(--app);margin:0 auto;background:var(--crema);box-shadow:0 0 60px rgba(60,20,25,.12);overflow:clip}
+.app{position:relative;max-width:var(--app);margin:0 auto;background:var(--crema);box-shadow:0 0 60px rgba(120,90,60,.10);overflow:clip}
 .wrap{position:relative;z-index:1;padding:0 26px}
 
 /* enredaderas laterales difuminadas */
@@ -62,7 +62,7 @@ section{position:relative;padding:70px 0;text-align:center}
   display:inline-flex;align-items:center;justify-content:center;
   font-family:var(--serif);font-size:14px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;
   padding:9px 34px;min-width:190px;border:0;border-radius:44px 3px 44px 10px;
-  background:var(--vino);color:#f3e2d0;cursor:pointer;text-decoration:none;
+  background:var(--vino);color:#ffffff;cursor:pointer;text-decoration:none;
   transition:transform .2s ease, filter .2s ease;
 }
 .btn:hover{transform:translateY(-2px);filter:brightness(1.15)}
@@ -105,7 +105,7 @@ section{position:relative;padding:70px 0;text-align:center}
 #fecha-box{padding:40px 0 30px}
 .fecha-card{
   width:min(150px,44%);margin:24px auto;padding:14px 10px 16px;border-radius:24px;border-radius:30px;background:var(--card);
-  box-shadow:0 14px 30px rgba(70,30,30,.12);
+  box-shadow:0 14px 30px rgba(120,90,60,.12);
 }
 .fecha-card .d{font-family:var(--script);font-size:48px;line-height:1.05;color:var(--vino)}
 .fecha-card .m{font-size:15px;text-transform:uppercase;letter-spacing:.03em;color:var(--vino);margin:6px 0 4px}
@@ -122,7 +122,7 @@ section{position:relative;padding:70px 0;text-align:center}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);row-gap:8px;max-width:250px;margin:16px auto 0;font-variant-numeric:oldstyle-nums}
 .cal-grid .h{font-size:15px;color:var(--vino);padding-bottom:4px}
 .cal-grid .c{height:32px;display:flex;align-items:center;justify-content:center;font-size:15.5px;font-weight:600;color:var(--vino);position:relative;isolation:isolate}
-.cal-grid .c.on{color:#f3e2d0}
+.cal-grid .c.on{color:#ffffff}
 .cal-grid .c.on::before{content:"";position:absolute;inset:-6px 2px;border-radius:999px;background:var(--vino);z-index:-1}
 
 /* padres */
@@ -156,11 +156,11 @@ section{position:relative;padding:70px 0;text-align:center}
 #itinerario .script{font-size:clamp(38px,10.6vw,46px);margin-bottom:14px}
 .itin-intro{font-style:italic;margin-bottom:30px!important}
 .t-item .tx b.rango{font-size:clamp(16px,4.4vw,18px)}
-.t-item .tx small{display:block;font-size:13.5px;line-height:1.25;color:#7a5a5e;margin-top:4px;font-style:italic}
-.lugar .dir{font-size:15px;color:#7a5a5e;font-style:italic;margin:-10px auto 22px;max-width:260px}
+.t-item .tx small{display:block;font-size:13.5px;line-height:1.25;color:#9a8169;margin-top:4px;font-style:italic}
+.lugar .dir{font-size:15px;color:#9a8169;font-style:italic;margin:-10px auto 22px;max-width:260px}
 #timeline{max-width:290px;margin:0 auto}
 .t-item{display:grid;grid-template-columns:1fr 24px 1fr;align-items:center;min-height:112px}
-.t-item .ico img{max-width:min(104px,100%);max-height:92px;margin:0 auto;object-fit:contain;filter:grayscale(1) contrast(.9)}
+.t-item .ico img{max-width:min(104px,100%);max-height:92px;margin:0 auto;object-fit:contain;filter:grayscale(1) sepia(.45) contrast(.9)}
 .t-item .tx b{display:block;font-size:clamp(20px,5.6vw,24px);font-weight:700;color:var(--vino);line-height:1.05}
 .t-item .tx span{display:block;font-size:14.5px;line-height:1.2;color:var(--tinta);margin-top:4px}
 .t-line{position:relative;align-self:stretch}
@@ -176,18 +176,18 @@ section{position:relative;padding:70px 0;text-align:center}
 .t-dot{display:block;width:10px;height:10px;border-radius:50%;background:var(--vino);margin:10px auto}
 
 /* secciones vino con borde de pincel */
-.vino{background:var(--vino);color:#f3e7dc;padding:110px 0 120px}
+.vino{background:#ccae90;color:#ffffff;padding:110px 0 120px}
 .vino::before,.vino::after{content:"";position:absolute;left:0;right:0;height:60px;background:url(img/borde-pincel.svg) center/100% 100% no-repeat;pointer-events:none}
 .vino::before{top:-1px;transform:scaleY(-1)}
 .vino::after{bottom:-1px}
-.vino .titulo{color:#f6ece2}
-.vino .texto{color:#f0e2d6}
+.vino .titulo{color:#ffffff}
+.vino .texto{color:#fffaf3}
 
 /* regalos */
 .mesa-logo{max-width:280px;margin:44px auto 22px}
 .qr{width:190px;margin:50px auto 18px;background:#fff;border-radius:10px;padding:12px}
 .regalo-dest{font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:16px;color:var(--oro-txt);max-width:300px;margin:22px auto 14px;line-height:1.35}
-.regalo-sobre{margin-top:46px;padding-top:30px;border-top:1px solid rgba(230,201,156,.35)}
+.regalo-sobre{margin-top:46px;padding-top:30px;border-top:1px solid rgba(255,255,255,.5)}
 .itin-cierre{margin-top:40px}
 .con-amor{font-weight:700;font-size:17px;color:var(--vino);margin-top:22px}
 .itin-firma{font-size:clamp(34px,9.4vw,42px);margin-top:4px;padding-bottom:10px}
@@ -197,19 +197,19 @@ section{position:relative;padding:70px 0;text-align:center}
 
 /* tarjetas */
 .cards{padding:50px 0 30px}
-.card{max-width:300px;margin-left:auto!important;margin-right:auto!important;background:var(--card);border-radius:30px;box-shadow:0 14px 34px rgba(70,30,30,.12);padding:30px 20px 34px;margin:0 6px 40px}
+.card{max-width:300px;margin-left:auto!important;margin-right:auto!important;background:var(--card);border-radius:30px;box-shadow:0 14px 34px rgba(120,90,60,.12);padding:30px 20px 34px;margin:0 6px 40px}
 .dress-ill{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:end;max-width:270px;margin:20px auto 24px}
 .dress-tipo{font-size:20px;letter-spacing:.06em;color:var(--vino);margin-top:6px}
 .paleta{display:flex;justify-content:center;flex-wrap:wrap;gap:2px;margin:12px 0 14px}
 .paleta i{box-shadow:inset 0 0 0 1px rgba(60,30,30,.18);width:clamp(19px,5.4vw,24px);height:clamp(19px,5.4vw,24px);border-radius:50%}
-.card .camara{width:54px;margin:0 auto 20px;filter:grayscale(1)}
+.card .camara{width:54px;margin:0 auto 20px;filter:grayscale(1) sepia(.45)}
 .card .texto{margin:20px auto 30px}
 
 /* recomendaciones */
 #recomendaciones{padding:50px 0 60px}
 #recomendaciones .script{font-size:clamp(33px,9.2vw,42px);margin-bottom:40px}
 .rec{margin-bottom:44px}
-.rec img{height:70px;width:auto;margin:0 auto 26px;filter:grayscale(1)}
+.rec img{height:70px;width:auto;margin:0 auto 26px;filter:grayscale(1) sepia(.45)}
 .rec img.ancho{height:auto;width:min(155px,40vw)}
 
 /* pase */
@@ -224,28 +224,28 @@ section{position:relative;padding:70px 0;text-align:center}
 form{text-align:left;margin-top:40px;display:grid;gap:12px}
 label{font-family:var(--sans);font-size:16px;color:var(--tinta);display:block;margin-bottom:6px}
 input,textarea,select{
-  width:100%;font-family:var(--sans);font-size:15px;color:var(--tinta);background:rgba(246,242,239,.7);
+  width:100%;font-family:var(--sans);font-size:15px;color:var(--tinta);background:rgba(255,255,255,.75);
   border:1.5px solid var(--vino);border-radius:12px;padding:10px 16px;outline:none;-webkit-appearance:none;appearance:none;
 }
-select{background:rgba(246,242,239,.7) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='%23521219' d='M0 0h12L6 8z'/%3E%3C/svg%3E") right 22px center/13px no-repeat;padding-right:48px}
+select{background:rgba(255,255,255,.75) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='%23521219' d='M0 0h12L6 8z'/%3E%3C/svg%3E") right 22px center/13px no-repeat;padding-right:48px}
 textarea{min-height:96px;resize:vertical}
-input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(82,18,25,.15)}
-::placeholder{color:#8f7b7c}
-.enviar{justify-self:center;font-family:var(--sans);font-size:16px;background:var(--vino);color:#f6ece2;border:0;border-radius:12px;padding:12px 32px;margin-top:4px;cursor:pointer}
+input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(179,146,112,.2)}
+::placeholder{color:#a8957f}
+.enviar{justify-self:center;font-family:var(--sans);font-size:16px;background:var(--vino);color:#ffffff;border:0;border-radius:12px;padding:12px 32px;margin-top:4px;cursor:pointer}
 .gforms{width:52px;margin:0 auto 18px}
 .form-msg{text-align:center;font-style:italic;min-height:1.4em}
 
 /* cierre */
 #cierre{padding:60px 0 50px}
-#cierre .anillos{width:64px;margin:0 auto 22px;filter:grayscale(1)}
-#cierre .texto{font-size:16px;color:#6b2a33}
+#cierre .anillos{width:64px;margin:0 auto 22px;filter:grayscale(1) sepia(.45)}
+#cierre .texto{font-size:16px;color:#8c7259}
 .amor{font-weight:700;font-size:17px;color:var(--vino);margin-top:26px}
 .firma{font-size:clamp(30px,8.4vw,37px);margin-top:16px}
-footer{font-family:var(--sans);font-size:13px;letter-spacing:.08em;color:#8f7b7c;text-align:center;padding:20px 0 40px}
+footer{font-family:var(--sans);font-size:13px;letter-spacing:.08em;color:#a8957f;text-align:center;padding:20px 0 40px}
 footer a{color:var(--vino);text-decoration:none}
 
 /* modal */
-.modal{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(40,10,14,.6);backdrop-filter:blur(3px)}
+.modal{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(60,45,30,.55);backdrop-filter:blur(3px)}
 .modal.open{display:flex;animation:fade .25s ease}
 @keyframes fade{from{opacity:0}}
 .modal .box{background:var(--crema);border-radius:26px;max-width:420px;width:100%;padding:34px 24px 26px;text-align:center;position:relative;max-height:90vh;overflow:auto}
@@ -254,8 +254,8 @@ footer a{color:var(--vino);text-decoration:none}
 .modal .dir{font-style:italic;color:var(--tinta);margin-top:6px}
 .modal iframe{width:100%;height:240px;border:0;border-radius:16px;margin:14px 0 18px;background:#eee}
 .cuenta{display:grid;gap:10px;margin:18px 0 6px;text-align:left}
-.cuenta div{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px dashed rgba(82,18,25,.25);padding:8px 2px}
-.cuenta small{font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8f7b7c;display:block}
+.cuenta div{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px dashed rgba(179,146,112,.35);padding:8px 2px}
+.cuenta small{font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#a8957f;display:block}
 .copy{font-family:var(--sans);font-size:12px;border:1px solid var(--vino);color:var(--vino);background:none;border-radius:999px;padding:7px 14px;cursor:pointer;flex-shrink:0}
 .copy.ok{background:var(--vino);color:var(--crema)}
 
@@ -263,7 +263,7 @@ footer a{color:var(--vino);text-decoration:none}
 #musica{
   position:fixed;bottom:calc(22px + env(safe-area-inset-bottom));right:max(18px, calc(50% - var(--app)/2 + 18px));z-index:40;
   width:48px;height:48px;border-radius:50%;border:0;background:var(--malva);color:#fff;cursor:pointer;
-  display:none;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(80,40,50,.25);
+  display:none;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(120,90,60,.25);
 }
 #musica.show{display:flex}
 #musica svg{width:22px;height:22px}
@@ -381,21 +381,17 @@ footer a{color:var(--vino);text-decoration:none}
     <!-- REGALOS -->
     <section id="regalos" class="vino">
       <div class="wrap reveal">
-        <h2 class="titulo">Mesa de regalos</h2>
-        <p class="regalo-dest">Lo más importante es contar con tu presencia 🤍</p>
-        <p class="texto">El mejor regalo para nosotros será compartir contigo la alegría de este día tan especial. 💍✨</p>
-        <p class="texto" style="margin-top:14px">Si deseas hacernos un presente para acompañarnos en el inicio de esta nueva etapa, te informamos con mucho cariño que nuestros regalos serán exclusivamente en efectivo o mediante transferencia bancaria, ya que contamos con todo lo necesario para nuestro hogar.</p>
+        <h2 class="titulo">🤍 Obsequio para los novios 🤍</h2>
+        <p class="texto" style="margin-top:22px">Para nosotros será un placer compartir este día tan especial con ustedes. Como regalo de bodas, pueden realizar su aporte en efectivo o mediante transferencia bancaria. En el lugar de la celebración encontrarán una elegante caja con sobres disponibles para depositar su obsequio.</p>
+        <p class="texto" style="margin-top:14px">Agradecemos de antemano su generosidad y por ser parte de este hermoso comienzo en nuestras vidas.</p>
         <img class="mesa-logo" id="mesa-logo" alt="" hidden>
         <img class="qr" id="qr" alt="Código QR de la cuenta bancaria" hidden>
         <div class="regalo-btns">
           <a class="btn claro" id="btn-mesa" target="_blank" rel="noopener">Ver mesa de regalos</a>
           <button class="btn claro" data-open="modal-cuenta">Cuenta bancaria</button>
         </div>
-        <div class="regalo-sobre">
-          <p class="regalo-dest">🎁 ¿Prefieres entregar tu regalo personalmente?</p>
-          <p class="texto">Tendremos disponible un espacio especial con una caja para depositar sobres con regalos en efectivo. También encontrarás sobres disponibles para realizar tu obsequio.</p>
-          <p class="texto" style="margin-top:14px;font-style:italic">Agradecemos de todo corazón cada muestra de cariño y generosidad.</p>
-        </div>
+        <p class="con-amor" style="color:#fff;margin-top:34px">Con amor,</p>
+        <p class="script itin-firma" style="color:#fff"><span data-novio></span> &amp; <span data-novia></span> <span style="font-size:.45em;vertical-align:middle">💍✨</span></p>
       </div>
     </section>
 
@@ -504,7 +500,7 @@ footer a{color:var(--vino);text-decoration:none}
 const CONFIG = {
   novio: "Jesús",
   novia: "Ana",
-  fecha: "2027-02-14T19:00:00",          // ⚠️ DÍA PROVISIONAL (confirmar) · fecha y hora del evento
+  fecha: "2027-02-06T19:00:00",          // fecha y hora del evento (hora local)
   musica: "musica.mp3",                  // canción de fondo (suena al tocar "Ver invitación")
   fotoPortada: "img/foto-portada.jpg",   // foto grande que se queda fija arriba
   galeria: [                             // fotos tipo polaroid (2 antes del itinerario, el resto después)
@@ -525,6 +521,10 @@ const CONFIG = {
   ],
   itinerarioIntro: "Un día especial, una promesa eterna y el comienzo de una nueva historia juntos.",
   itinerario: [                    // los íconos se pueden cambiar por imágenes (img: "img/archivo.png")
+    { hora: "7:00 PM",          titulo: "Llegada y bienvenida",        detalle: "Recepción y acomodo de los invitados.",  img: "img/salon.png" },
+    { hora: "7:15 – 8:00 PM",   titulo: "Ceremonia nupcial",           detalle: "Nuestra unión bajo la bendición de Dios.", img: "img/anillos.png" },
+    { hora: "8:00 – 8:45 PM",   titulo: "Sesión de fotografías",       detalle: "Los momentos más hermosos de la noche.",  img: "img/camara.png" },
+    { hora: "8:45 – 9:30 PM",   titulo: "Recepción y cena buffet",     detalle: "Compartir, cenar y celebrar juntos.",    img: "img/mesa.png" },
     { hora: "9:30 – 10:00 PM",  titulo: "Dinámicas y juegos",          detalle: "Alegría, sorpresas y risas para todos.", img: "img/icono-juegos.png" },
     { hora: "10:00 – 10:15 PM", titulo: "Brindis de los novios",       detalle: "Celebramos juntos nuestro amor.",        img: "img/icono-brindis.png" },
     { hora: "10:15 PM",         titulo: "Lanzamiento del ramo",        detalle: "Buenos deseos para la próxima novia.",   img: "img/icono-ramo.png" },
