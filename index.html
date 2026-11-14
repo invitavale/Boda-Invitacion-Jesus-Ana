@@ -85,6 +85,29 @@ section{position:relative;padding:70px 0;text-align:center}
 @keyframes latido{0%,100%{transform:scale(1)}12%{transform:scale(1.07)}24%{transform:scale(1)}36%{transform:scale(1.05)}}
 #abrir{box-shadow:0 0 0 3px var(--oro)}
 
+/* ---------- INTRO: SOBRE EN VIDEO ---------- */
+#intro{position:fixed;inset:0;z-index:70;background:#f3ece2;display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:opacity 1.2s ease, visibility 1.2s ease;-webkit-tap-highlight-color:transparent}
+#intro .marco{position:relative;width:min(100%,var(--app));height:100%;overflow:hidden}
+#intro video,#intro .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#intro .poster{transition:opacity .4s ease}
+#intro.play .poster{opacity:0}
+#intro .destello{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,#fffaf0 0%,#fdfcfa 60%);opacity:0;transition:opacity .9s ease;pointer-events:none}
+#intro.fin .destello{opacity:1}
+#intro.hide{opacity:0;visibility:hidden}
+#intro .anillo{position:absolute;left:50%;top:47%;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:50%;
+  border:1.5px solid rgba(255,240,210,.9);box-shadow:0 0 30px rgba(227,190,120,.55);animation:pulso 2.2s ease-out infinite;pointer-events:none}
+#intro .toca{position:absolute;left:0;right:0;bottom:calc(9% + env(safe-area-inset-bottom));text-align:center;pointer-events:none}
+#intro .toca span{display:inline-block;font-family:var(--serif);font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--vino-2);
+  background:rgba(253,252,250,.82);padding:11px 26px;border-radius:44px 3px 44px 10px;box-shadow:0 6px 20px rgba(120,90,60,.15);animation:flota 2.6s ease-in-out infinite}
+#intro .toca small{display:block;font-family:var(--script);font-size:30px;color:var(--vino);margin-bottom:8px;text-shadow:0 1px 8px #fff}
+#intro.play .anillo,#intro.play .toca{opacity:0;transition:opacity .4s ease}
+@keyframes pulso{0%{transform:scale(.75);opacity:0}30%{opacity:1}100%{transform:scale(1.35);opacity:0}}
+@keyframes flota{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+/* entrada de la invitación después del sobre */
+body.entrando .app{animation:entrada 1.8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes entrada{from{opacity:0;transform:scale(1.06);filter:blur(10px) brightness(1.25)}to{opacity:1;transform:none;filter:none}}
+
 /* ---------- FOTO FIJA (efecto parallax) ---------- */
 .foto-hero{position:sticky;top:0;height:62vh;height:62svh;z-index:0;overflow:hidden}
 .foto-hero img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
@@ -153,7 +176,7 @@ section{position:relative;padding:70px 0;text-align:center}
 
 /* itinerario */
 #itinerario{padding:50px 0 90px}
-#itinerario .script{font-size:clamp(38px,10.6vw,46px);margin-bottom:14px}
+#itinerario h2.script{font-size:clamp(38px,10.6vw,46px);margin-bottom:14px}
 .itin-intro{font-style:italic;margin-bottom:30px!important}
 .t-item .tx b.rango{font-size:clamp(16px,4.4vw,18px)}
 .t-item .tx small{display:block;font-size:13.5px;line-height:1.25;color:#9a8169;margin-top:4px;font-style:italic}
@@ -215,7 +238,7 @@ section{position:relative;padding:70px 0;text-align:center}
 /* pase */
 #pase{padding:100px 0 110px}
 #pase .invitado{font-family:var(--script);font-size:clamp(31px,8.6vw,38px);color:var(--oro-txt);line-height:1.15;margin:22px 0;word-break:break-word}
-#pase .valida{font-size:14.5px;font-style:italic;opacity:.85;margin-top:14px}
+#pase .valida{font-size:16px;font-style:italic;opacity:.95;margin-top:16px;max-width:280px}
 #pase .pases{font-size:28px;font-weight:600;color:var(--oro-txt);margin-top:26px}
 
 /* rsvp */
@@ -275,7 +298,8 @@ footer a{color:var(--vino);text-decoration:none}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
-  .corazones,#musica.playing::after{animation:none}
+  .corazones,#musica.playing::after,#intro .anillo,#intro .toca span{animation:none}
+  body.entrando .app{animation:none}
 }
 </style>
 </head>
@@ -294,14 +318,15 @@ footer a{color:var(--vino);text-decoration:none}
   </symbol>
 </svg>
 
-<!-- PORTADA -->
-<div id="portada" class="vides">
-  <h1 class="script nombres"><span data-novio></span><span class="amp">&amp;</span><span data-novia></span></h1>
-  <svg class="corazones" viewBox="0 0 96 90" aria-hidden="true">
-    <path d="M44 74C20 58 6 46 6 30 6 19 14 11 24 11c8 0 14 4 18 10 4-6 10-10 18-10 10 0 18 8 18 19 0 7-3 13-8 19" fill="none" stroke="currentColor" stroke-width="1.6"/>
-    <path d="M70 86C58 78 52 72 52 64c0-6 4-10 9-10 4 0 7 2 9 5 2-3 5-5 9-5 5 0 9 4 9 10 0 8-6 14-18 22z" fill="var(--crema)" stroke="currentColor" stroke-width="1.6"/>
-  </svg>
-  <button class="btn" id="abrir">Ver invitación</button>
+<!-- INTRO: sobre en video. El toque para abrirlo activa la música en cualquier navegador -->
+<div id="intro" role="button" tabindex="0" aria-label="Toca para abrir la invitación">
+  <div class="marco">
+    <video id="intro-video" muted playsinline webkit-playsinline preload="auto" disablepictureinpicture></video>
+    <img class="poster" id="intro-poster" alt="">
+    <span class="anillo"></span>
+    <div class="toca"><small>Jesús &amp; Ana</small><span>Toca para abrir</span></div>
+    <div class="destello"></div>
+  </div>
 </div>
 
 <div class="app">
@@ -367,13 +392,14 @@ footer a{color:var(--vino);text-decoration:none}
     <!-- ITINERARIO -->
     <section id="itinerario">
       <div class="wrap">
-        <h2 class="script reveal">Itinerario</h2>
+        <p class="subt reveal" style="margin-bottom:10px">🤍 Itinerario de boda 🤍</p>
+        <h2 class="script reveal"><span data-novia></span> &amp; <span data-novio></span></h2>
         <p class="texto itin-intro reveal" id="itin-intro"></p>
         <div id="timeline"></div>
         <div class="itin-cierre reveal">
-          <p class="texto">Gracias por ser parte de nuestra historia de amor. Hoy celebramos una promesa y comenzamos una vida juntos, con Dios como centro de nuestro hogar. 🤍</p>
+          <p class="texto">Gracias por acompañarnos y ser parte de uno de los capítulos más hermosos de nuestra historia.</p>
           <p class="con-amor">Con amor,</p>
-          <p class="script itin-firma"><span data-novia></span> &amp; <span data-novio></span></p>
+          <p class="script itin-firma"><span data-novia></span> &amp; <span data-novio></span> <span style="font-size:.45em;vertical-align:middle">🤍</span></p>
         </div>
       </div>
     </section>
@@ -382,16 +408,16 @@ footer a{color:var(--vino);text-decoration:none}
     <section id="regalos" class="vino">
       <div class="wrap reveal">
         <h2 class="titulo">🤍 Obsequio para los novios 🤍</h2>
-        <p class="texto" style="margin-top:22px">Para nosotros será un placer compartir este día tan especial con ustedes. Como regalo de bodas, pueden realizar su aporte en efectivo o mediante transferencia bancaria. En el lugar de la celebración encontrarán una elegante caja con sobres disponibles para depositar su obsequio.</p>
-        <p class="texto" style="margin-top:14px">Agradecemos de antemano su generosidad y por ser parte de este hermoso comienzo en nuestras vidas.</p>
+        <p class="texto" style="margin-top:22px">Tu presencia es nuestro mejor regalo y nos hará muy felices compartir este día contigo. 🤍</p>
+        <p class="texto" style="margin-top:14px">Para los obsequios, tendremos disponible la opción de transferencia bancaria o una caja con sobres en el evento para quienes deseen realizar su regalo en efectivo.</p>
+        <p class="texto" style="margin-top:14px">¡Gracias por ser parte de este momento tan especial!</p>
         <img class="mesa-logo" id="mesa-logo" alt="" hidden>
         <img class="qr" id="qr" alt="Código QR de la cuenta bancaria" hidden>
         <div class="regalo-btns">
           <a class="btn claro" id="btn-mesa" target="_blank" rel="noopener">Ver mesa de regalos</a>
           <button class="btn claro" data-open="modal-cuenta">Cuenta bancaria</button>
         </div>
-        <p class="con-amor" style="color:#fff;margin-top:34px">Con amor,</p>
-        <p class="script itin-firma" style="color:#fff"><span data-novio></span> &amp; <span data-novia></span> <span style="font-size:.45em;vertical-align:middle">💍✨</span></p>
+        <p class="script itin-firma" style="color:#fff;margin-top:34px"><span data-novia></span> &amp; <span data-novio></span></p>
       </div>
     </section>
 
@@ -430,7 +456,7 @@ footer a{color:var(--vino);text-decoration:none}
         <div class="rec reveal"><img src="img/celular.png" alt="">
           <p class="texto">Usar <b>celular en modo vibración</b> para no interrumpir la ceremonia.</p></div>
         <div class="rec reveal"><img class="ancho" src="img/carro.png" alt="">
-          <p class="texto">Dentro del lugar <b>hay un amplio espacio de estacionamiento</b> donde puedes dejar tu carro y hay vigilancia.</p></div>
+          <p class="texto">El lugar <b>no cuenta con parqueo interno</b>, pero la calle es súper ancha y ahí podrás estacionar tu vehículo.</p></div>
       </div>
     </section>
 
@@ -501,14 +527,16 @@ const CONFIG = {
   novio: "Jesús",
   novia: "Ana",
   fecha: "2027-02-06T19:00:00",          // fecha y hora del evento (hora local)
+  introVideo: "img/intro-sobre.mp4",    // sobre que se abre al tocar
+  introPoster: "img/intro-sobre.jpg",
   musica: "musica.mp3",                  // canción de fondo (suena al tocar "Ver invitación")
   fotoPortada: "img/foto-portada.jpg",   // foto grande que se queda fija arriba
   galeria: [                             // fotos tipo polaroid (2 antes del itinerario, el resto después)
     { video: "img/video-novios.mp4", poster: "img/video-novios.jpg" },   // video: se reproduce solo, sin sonido
     "img/galeria-2.jpg", "img/galeria-3.jpg", "img/galeria-4.jpg"
   ],
-  padresNovio: ["Ramírez", "Guillermina"],
-  padresNovia: ["Andy", "Yajaira"],
+  padresNovio: ["Ramírez De Paula", "Guillermina Castro"],
+  padresNovia: ["José Antonio Hernández", "Valeria Yajaira Pache"],
   lugares: [                       // agrega o quita lugares; cada uno muestra su botón "Ver ubicación"
     {
       titulo: "Celebración",
@@ -519,23 +547,22 @@ const CONFIG = {
       maps: "https://maps.app.goo.gl/kZW7x1wCZyMxe51a8"
     }
   ],
-  itinerarioIntro: "Un día especial, una promesa eterna y el comienzo de una nueva historia juntos.",
+  itinerarioIntro: "Un día para celebrar el amor",
   itinerario: [                    // los íconos se pueden cambiar por imágenes (img: "img/archivo.png")
-    { hora: "7:00 PM",          titulo: "Llegada y bienvenida",        detalle: "Recepción y acomodo de los invitados.",  img: "img/salon.png" },
-    { hora: "7:15 – 8:00 PM",   titulo: "Ceremonia nupcial",           detalle: "Nuestra unión bajo la bendición de Dios.", img: "img/anillos.png" },
-    { hora: "8:00 – 8:45 PM",   titulo: "Sesión de fotografías",       detalle: "Los momentos más hermosos de la noche.",  img: "img/camara.png" },
-    { hora: "8:45 – 9:30 PM",   titulo: "Recepción y cena buffet",     detalle: "Compartir, cenar y celebrar juntos.",    img: "img/mesa.png" },
-    { hora: "9:30 – 10:00 PM",  titulo: "Dinámicas y juegos",          detalle: "Alegría, sorpresas y risas para todos.", img: "img/icono-juegos.png" },
-    { hora: "10:00 – 10:15 PM", titulo: "Brindis de los novios",       detalle: "Celebramos juntos nuestro amor.",        img: "img/icono-brindis.png" },
-    { hora: "10:15 PM",         titulo: "Lanzamiento del ramo",        detalle: "Buenos deseos para la próxima novia.",   img: "img/icono-ramo.png" },
-    { hora: "10:15 – 11:00 PM", titulo: "¡Hora loca!",                 detalle: "Música, baile y mucha diversión.",       img: "img/icono-fiesta.png" },
-    { hora: "11:00 PM",         titulo: "Palabras de agradecimiento",  detalle: "Gratitud a Dios y a todos ustedes.",     img: "img/icono-palabras.png" },
-    { hora: "11:15 PM",         titulo: "Cierre de la celebración",    detalle: "Gracias por una noche inolvidable.",     img: "img/icono-cierre.png" }
+    { hora: "5:30 p. m.",  titulo: "Recepción de invitados",            detalle: "Llegada y bienvenida a nuestros familiares y amigos.",                 img: "img/salon.png" },
+    { hora: "6:00 p. m.",  titulo: "Inicio de la ceremonia",            detalle: "Comienzo de la ceremonia y celebración de nuestra unión matrimonial.", img: "img/anillos.png" },
+    { hora: "6:45 p. m.",  titulo: "Dinámica: ¿Quién tiene a los novios?", detalle: "Un momento divertido para compartir y disfrutar entre familiares y amigos.", img: "img/icono-juegos.png" },
+    { hora: "7:00 p. m.",  titulo: "Cena – Servicio de buffet",         detalle: "Disfrutaremos de una deliciosa cena en compañía de nuestros seres queridos.", img: "img/mesa.png" },
+    { hora: "8:00 p. m.",  titulo: "Sesión fotográfica",                detalle: "Un espacio para capturar los mejores recuerdos de esta celebración.",  img: "img/camara.png" },
+    { hora: "8:45 p. m.",  titulo: "Palabras especiales",               detalle: "Discursos y mensajes de cariño de nuestros padres y padrinos.",        img: "img/icono-palabras.png" },
+    { hora: "9:00 p. m.",  titulo: "¡Hora loca!",                       detalle: "Música, alegría y diversión para encender la celebración.",            img: "img/icono-fiesta.png" },
+    { hora: "9:45 p. m.",  titulo: "Lanzamiento del ramo",              detalle: "Un momento especial para compartir la tradición y la alegría del amor.", img: "img/icono-ramo.png" },
+    { hora: "10:30 p. m.", titulo: "Despedida de los novios",           detalle: "Cierre de esta hermosa celebración y despedida de los recién casados.", img: "img/icono-cierre.png" }
   ],
   mesaRegalos: "",                                  // enlace a mesa de regalos; deja "" para ocultar el botón
   mesaRegalosLogo: "",                              // opcional: logo de la tienda (ej. "img/multicenter.png")
   cuentas: [                                        // deja [] para ocultar el botón "Cuenta bancaria"
-    { etiqueta: "💙 Novio", titular: "Jesús Alberto Castro de Paula", banco: "Banco Popular Dominicano", tipo: "Cuenta de ahorro",   numero: "806615134" },
+    { etiqueta: "💙 Novio", titular: "Jesús Alberto De Paula Castro", banco: "Banco Popular Dominicano", tipo: "Cuenta de ahorro",   numero: "806615134" },
     { etiqueta: "❤️ Novia", titular: "Ana Valeria Hernández Pache",   banco: "Banreservas",              tipo: "Cuenta corriente",   numero: "9608723579" }
   ],
   qrCuenta: "",                                     // opcional: imagen del QR (ej. "img/qr.png")
@@ -592,15 +619,40 @@ function sonar(){
     document.addEventListener("click", reintento, { once: true });
   });
 }
-$("#abrir").addEventListener("click", () => {
+const intro = $("#intro"), introVid = $("#intro-video");
+introVid.src = CONFIG.introVideo;
+$("#intro-poster").src = CONFIG.introPoster;
+$("#intro .toca small").textContent = `${CONFIG.novio} & ${CONFIG.novia}`;
+let abierto = false, entrado = false;
+function entrarInvitacion(){
+  if (entrado) return; entrado = true;
+  intro.classList.add("fin");                       // destello crema sobre el final del video
+  setTimeout(() => {
+    document.body.classList.remove("locked");
+    document.body.classList.add("entrando");
+    window.scrollTo(0, 0);
+    intro.classList.add("hide");
+    btnMus.classList.add("show");
+    $$(".polaroid video").forEach(v => v.play().catch(() => {}));
+    setTimeout(() => intro.remove(), 1400);
+  }, 700);
+}
+function abrirSobre(){
+  if (abierto) return; abierto = true;
   musicaQuerida = true;
-  sonar();
-  $("#portada").classList.add("hide");
-  document.body.classList.remove("locked");
-  window.scrollTo(0, 0);
-  btnMus.classList.add("show");
-  $$(".polaroid video").forEach(v => v.play().catch(() => {}));
+  sonar();                                          // dentro del toque: desbloquea el audio en iPhone, Android y PC
+  intro.classList.add("play");
+  const p = introVid.play();
+  if (p && p.catch) p.catch(entrarInvitacion);      // si el video no puede reproducirse, entra directo
+  setTimeout(entrarInvitacion, 11000);              // red de seguridad
+}
+introVid.addEventListener("timeupdate", () => {
+  if (introVid.duration && introVid.currentTime >= introVid.duration - 1.1) entrarInvitacion();
 });
+introVid.addEventListener("ended", entrarInvitacion);
+introVid.addEventListener("error", () => { if (abierto) entrarInvitacion(); });
+intro.addEventListener("click", abrirSobre);
+intro.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); abrirSobre(); } });
 /* pausa si la persona sale de la página y reanuda al volver */
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) audio.pause();
@@ -661,7 +713,7 @@ tick(); setInterval(tick, 1000);
 /* Itinerario: alterna imagen / texto a cada lado de la línea */
 $("#timeline").innerHTML = CONFIG.itinerario.map((i, n) => {
   const ico = `<div class="ico"><img src="${esc(i.img)}" alt=""></div>`;
-  const tx = `<div class="tx"><b${i.hora.length > 8 ? ' class="rango"' : ""}>${esc(i.hora)}</b><span>${esc(i.titulo)}</span>${i.detalle ? `<small>${esc(i.detalle)}</small>` : ""}</div>`;
+  const tx = `<div class="tx"><b${i.hora.length > 11 ? ' class="rango"' : ""}>${esc(i.hora)}</b><span>${esc(i.titulo)}</span>${i.detalle ? `<small>${esc(i.detalle)}</small>` : ""}</div>`;
   return `<div class="t-item reveal">${n % 2 ? tx : ico}<div class="t-line"></div>${n % 2 ? ico : tx}</div><span class="t-dot"></span>`;
 }).join("");
 
@@ -706,10 +758,10 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") $$(".modal.o
 const params = new URLSearchParams(location.search);
 const invNombre = (params.get("nombre") || "").trim().slice(0, 80);
 const invPases = Math.min(Math.max(parseInt(params.get("invitados"), 10) || 0, 0), 20);
-$("#inv-nombre").textContent = invNombre || CONFIG.invitadoPorDefecto;
+$("#inv-nombre").textContent = (invNombre || CONFIG.invitadoPorDefecto).replace(/\s+/g, " ");
 const pases = invPases || 1;
 $("#inv-pases").textContent = pases;
-$("#inv-valida").textContent = `Invitación válida para ${pases === 1 ? "una persona" : pases + " personas"}.`;
+$("#inv-valida").textContent = `Esta invitación es exclusivamente válida para ${pases} ${pases === 1 ? "persona" : "personas"}.`;
 
 /* Confirmación por Google Forms */
 $("#btn-rsvp").href = CONFIG.formularioRsvp;
